@@ -1,120 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import picture from './assets/rt.png'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>welcome</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <div className="card">
+        <img
+          src={picture}s
+          className="foto"
+        />
 
-      <div className="ticks"></div>
+        <h1>Andres Felipe</h1>
+        <h1>Cuervo Jimenez</h1>      
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <h2>ANÁLISIS Y DESARROLLO DE SOFTWARE</h2>
+        <h3>Tecnólogo</h3>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <hr />
+
+        <h2>Hoja de vida del Aprendiz</h2>
+        <p>
+          Estudiante de Análisis y Desarrollo de Software con conocimientos en
+          desarrollo web utilizando HTML, CSS, JavaScript . Me
+          caracterizo por el trabajo en equipo, la responsabilidad y el deseo
+          de aprender nuevas tecnologías.
+        </p>
+
+        <h2>Información Personal</h2>
+        <p><strong>Correo:</strong> andresjimenez.c556@email.com</p>
+        <p><strong>Teléfono:</strong> 3204864084</p>
+        <p><strong>Ciudad:</strong> Bogotá, Colombia</p>
+
+        <h2>Cursos Realizados</h2>
+        <ul>
+          <li>Fundamentos en Data science</li>
+          <li>html and css</li>
+          <li>JavaScript</li>
+          <li>Git y GitHub</li>
+        </ul>
+
+        <button>Descargar Hoja de Vida</button>
+      </div>
     </>
   )
 }
