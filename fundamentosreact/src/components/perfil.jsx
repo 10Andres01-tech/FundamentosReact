@@ -1,6 +1,6 @@
 import picture from "../assets/rt.png";
 
-function Dbasicos() {
+function Dbasicos(props) {
   return (
     <section>
       <div className="card">
@@ -10,8 +10,8 @@ function Dbasicos() {
           className="foto"
         />
 
-        <h1>Andres Felipe</h1>
-        <h1>Cuervo Jimenez</h1>
+        <h1>{props.nombre}</h1>
+      
 
         <h2>ANÁLISIS Y DESARROLLO DE SOFTWARE</h2>
         <h3>Tecnólogo</h3>

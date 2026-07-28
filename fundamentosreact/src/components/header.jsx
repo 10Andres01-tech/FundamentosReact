@@ -1,8 +1,8 @@
-function Header()
+function Header(props)
 {
     return(
-    <header>
-        <h1>WELCOME TO ?</h1>
+    <header className=""header>
+        <h1>{props.programa}</h1>
     </header>
 )
 }

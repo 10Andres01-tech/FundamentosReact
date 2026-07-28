@@ -1,17 +1,21 @@
-function Cursos() {
+function Cursos({ datos }) {
   return (
-    <section className="card">
-      <h2>Cursos Realizados</h2>
+    <>
+      {datos && (
+        <section className="card">
+          <h2>Cursos Realizados</h2>
 
-      <ul>
-        <li>Fundamentos en Data Science</li>
-        <li>HTML y CSS</li>
-        <li>JavaScript</li>
-        <li>Git y GitHub</li>
-      </ul>
+          <ul>
+            <li>Fundamentos en Data Science</li>
+            <li>HTML y CSS</li>
+            <li>JavaScript</li>
+            <li>Git y GitHub</li>
+          </ul>
 
-      <button>Descargar Hoja de Vida</button>
-    </section>
+          <button>Descargar Hoja de Vida</button>
+        </section>
+      )}
+    </>
   );
 }
 
