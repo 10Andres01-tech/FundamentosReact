@@ -1,0 +1,156 @@
+.contenedor {
+  width: min(100% - 32px, 960px);
+  margin: 40px auto;
+}
+
+.encabezado,
+footer {
+  padding: 28px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #007832, #39a900);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 78, 33, 0.2);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.encabezado p {
+  margin: 8px 0 0;
+}
+
+main {
+  margin: 28px 0;
+}
+
+.formulario {
+  padding: clamp(24px, 5vw, 42px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(25, 54, 36, 0.12);
+}
+
+.formulario h2 {
+  margin: 0 0 28px;
+  color: #004e21;
+  text-align: center;
+}
+
+.formulario form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.grupo-completo,
+.formulario button,
+.mensaje-exito {
+  grid-column: 1 / -1;
+}
+
+.grupo label,
+legend {
+  font-weight: 700;
+  color: #1d3b29;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  color: #1f2933;
+  background: #fff;
+  border: 1px solid #b7c8bc;
+  border-radius: 8px;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid rgba(57, 169, 0, 0.22);
+  border-color: #39a900;
+}
+
+input[type='file'] {
+  padding: 8px;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #b7c8bc;
+  border-radius: 8px;
+}
+
+.opciones-radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.opciones-radio label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+}
+
+.opciones-radio input {
+  width: auto;
+}
+
+button {
+  padding: 13px 20px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: #007832;
+  border: 0;
+  border-radius: 8px;
+}
+
+button:hover {
+  background: #005d27;
+}
+
+.mensaje-exito {
+  padding: 12px;
+  margin: 4px 0 0;
+  color: #075b2b;
+  font-weight: 700;
+  text-align: center;
+  background: #e6f6e9;
+  border-radius: 8px;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .contenedor {
+    width: min(100% - 20px, 960px);
+    margin: 16px auto;
+  }
+
+  .formulario form {
+    grid-template-columns: 1fr;
+  }
+
+  .grupo-completo,
+  .formulario button,
+  .mensaje-exito {
+    grid-column: auto;
+  }
+}

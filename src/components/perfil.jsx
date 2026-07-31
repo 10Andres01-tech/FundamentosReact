@@ -1,0 +1,41 @@
+import picture from "../assets/rt.png";
+
+function Dbasicos(props) {
+  return (
+    <section>
+      <div className="card">
+        <img
+          src={picture}
+          alt="Foto de perfil"
+          className="foto"
+        />
+
+        <h1>{props.nombre}</h1>
+      
+
+        <h2>ANÁLISIS Y DESARROLLO DE SOFTWARE</h2>
+        <h3>Tecnólogo</h3>
+
+        <hr />
+
+        <h2>Hoja de vida del Aprendiz</h2>
+
+        <p>
+          Estudiante de Análisis y Desarrollo de Software con conocimientos en
+          desarrollo web utilizando HTML, CSS y JavaScript. Me caracterizo por
+          el trabajo en equipo, la responsabilidad y el deseo de aprender nuevas
+          tecnologías.
+        </p>
+
+        <h2>Información Personal</h2>
+
+        <p><strong>Correo:</strong> andresjimenez.c556@email.com</p>
+        <p><strong>Teléfono:</strong> 3204864084</p>
+        <p><strong>Ciudad:</strong> Bogotá, Colombia</p>
+
+      </div>
+    </section>
+  );
+}
+
+export default Dbasicos;
