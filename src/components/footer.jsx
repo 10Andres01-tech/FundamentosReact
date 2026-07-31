@@ -1,9 +1,9 @@
 function Footer() {
   return (
     <footer>
-      <p>© 2026 Derechos reservados.</p>
+      © 2026 Derechos reservados.
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
