@@ -1,105 +1,133 @@
-import { useState } from "react";
+function FormularioExperiencia({
+  datos,
+  setDatos,
+  siguiente,
+  anterior
+}) {
 
-function FormularioExperiencia({ siguiente, anterior }) {
+  // Actualiza cualquier dato de experiencia
+  const actualizar = (campo, valor) => {
 
-    const [empresa, setEmpresa] = useState("");
-    const [cargo, setCargo] = useState("");
-    const [tiempo, setTiempo] = useState("");
-    const [funciones, setFunciones] = useState("");
-    const [habilidades, setHabilidades] = useState("");
+    setDatos((anterior) => ({
+      ...anterior,
+      [campo]: valor
+    }));
 
-    const continuar = (e) => {
+  };
 
-        e.preventDefault();
+  const continuar = (e) => {
 
-        alert("Experiencia laboral guardada.");
+    e.preventDefault();
 
-        if (siguiente) {
-            siguiente();
-        }
+    siguiente();
 
-    };
+  };
 
-    return (
+  return (
 
-        <div className="formulario">
+    <div className="formulario">
 
-            <h2>Experiencia Laboral</h2>
+      <h2>Experiencia Laboral</h2>
 
-            <form onSubmit={continuar}>
+      <form onSubmit={continuar}>
 
-                <div className="grupo">
-                    <label>Empresa</label>
+        <div className="grupo">
 
-                    <input
-                        type="text"
-                        placeholder="Nombre de la empresa"
-                        value={empresa}
-                        onChange={(e) => setEmpresa(e.target.value)}
-                    />
-                </div>
+          <label>Empresa</label>
 
-                <div className="grupo">
-                    <label>Cargo</label>
-
-                    <input
-                        type="text"
-                        placeholder="Cargo desempeñado"
-                        value={cargo}
-                        onChange={(e) => setCargo(e.target.value)}
-                    />
-                </div>
-
-                <div className="grupo">
-                    <label>Tiempo de experiencia</label>
-
-                    <input
-                        type="text"
-                        placeholder="Ej: 2 años"
-                        value={tiempo}
-                        onChange={(e) => setTiempo(e.target.value)}
-                    />
-                </div>
-
-                <div className="grupo">
-                    <label>Funciones desempeñadas</label>
-
-                    <textarea
-                        rows="5"
-                        placeholder="Describa las funciones realizadas"
-                        value={funciones}
-                        onChange={(e) => setFunciones(e.target.value)}
-                    ></textarea>
-                </div>
-
-                <div className="grupo">
-                    <label>Habilidades Técnicas</label>
-
-                    <textarea
-                        rows="5"
-                        placeholder="Ejemplo: Java, React, MySQL..."
-                        value={habilidades}
-                        onChange={(e) => setHabilidades(e.target.value)}
-                    ></textarea>
-                </div>
-
-                <button
-                    type="button"
-                    onClick={anterior}
-                >
-                    Anterior
-                </button>
-
-                <button type="submit">
-                    Vista previa
-                </button>
-
-            </form>
+          <input
+            type="text"
+            placeholder="Nombre de la empresa"
+            value={datos.empresa || ""}
+            onChange={(e) =>
+              actualizar("empresa", e.target.value)
+            }
+          />
 
         </div>
 
-    );
 
+        <div className="grupo">
+
+          <label>Cargo</label>
+
+          <input
+            type="text"
+            placeholder="Cargo desempeñado"
+            value={datos.cargo || ""}
+            onChange={(e) =>
+              actualizar("cargo", e.target.value)
+            }
+          />
+
+        </div>
+
+
+        <div className="grupo">
+
+          <label>Tiempo de experiencia</label>
+
+          <input
+            type="text"
+            placeholder="Ej: 2 años"
+            value={datos.experiencia || ""}
+            onChange={(e) =>
+              actualizar("experiencia", e.target.value)
+            }
+          />
+
+        </div>
+
+
+        <div className="grupo">
+
+          <label>Funciones desempeñadas</label>
+
+          <textarea
+            rows="5"
+            placeholder="Describa las funciones realizadas"
+            value={datos.funciones || ""}
+            onChange={(e) =>
+              actualizar("funciones", e.target.value)
+            }
+          ></textarea>
+
+        </div>
+
+
+        <div className="grupo">
+
+          <label>Habilidades Técnicas</label>
+
+          <textarea
+            rows="5"
+            placeholder="Ejemplo: Java, React, MySQL..."
+            value={datos.habilidades || ""}
+            onChange={(e) =>
+              actualizar("habilidades", e.target.value)
+            }
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="button"
+          onClick={anterior}
+        >
+          Anterior
+        </button>
+
+
+        <button type="submit">
+          Vista previa
+        </button>
+
+      </form>
+
+    </div>
+
+  );
 }
 
 export default FormularioExperiencia;

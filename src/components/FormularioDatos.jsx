@@ -1,30 +1,26 @@
-import { useState } from "react";
+function FormularioDatos({ datos, setDatos, siguiente }) {
 
-function FormularioDatos({ siguiente }) {
+  // Actualiza cualquier dato del formulario
+  const actualizar = (campo, valor) => {
 
-  // Estados del formulario
-  const [foto, setFoto] = useState(null);
-  const [nombre, setNombre] = useState("");
-  const [edad, setEdad] = useState("");
-  const [ciudad, setCiudad] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [programa, setPrograma] = useState("");
-  const [ficha, setFicha] = useState("");
-  const [jornada, setJornada] = useState("Mañana");
+    setDatos((anterior) => ({
+      ...anterior,
+      [campo]: valor
+    }));
+
+  };
 
   // Función del botón Continuar
   const continuar = (e) => {
 
     e.preventDefault();
 
-    alert("Los datos fueron capturados correctamente.");
+    siguiente();
 
-    if (siguiente) {
-      siguiente();
-    }
   };
 
   return (
+
     <div className="formulario">
 
       <h2>Registro de Aprendices</h2>
@@ -32,87 +28,145 @@ function FormularioDatos({ siguiente }) {
       <form onSubmit={continuar}>
 
         <div className="grupo">
+
           <label>Fotografía</label>
+
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setFoto(e.target.files[0])}
+            onChange={(e) =>
+              actualizar(
+                "foto",
+                e.target.files?.[0]?.name || ""
+              )
+            }
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Nombre Completo</label>
+
           <input
             type="text"
             placeholder="Ingrese su nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            value={datos.nombre || ""}
+            onChange={(e) =>
+              actualizar("nombre", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Edad</label>
+
           <input
             type="number"
             placeholder="Ingrese su edad"
-            value={edad}
-            onChange={(e) => setEdad(e.target.value)}
+            value={datos.edad || ""}
+            onChange={(e) =>
+              actualizar("edad", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Ciudad</label>
+
           <input
             type="text"
             placeholder="Ingrese su ciudad"
-            value={ciudad}
-            onChange={(e) => setCiudad(e.target.value)}
+            value={datos.ciudad || ""}
+            onChange={(e) =>
+              actualizar("ciudad", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Programa de Formación</label>
+
           <input
             type="text"
             placeholder="Ejemplo: ADSO"
-            value={programa}
-            onChange={(e) => setPrograma(e.target.value)}
+            value={datos.programa || ""}
+            onChange={(e) =>
+              actualizar("programa", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Correo Electrónico</label>
+
           <input
             type="email"
             placeholder="correo@misena.edu.co"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
+            value={datos.correo || ""}
+            onChange={(e) =>
+              actualizar("correo", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Número de Ficha</label>
+
           <input
             type="number"
             placeholder="Ingrese la ficha"
-            value={ficha}
-            onChange={(e) => setFicha(e.target.value)}
+            value={datos.ficha || ""}
+            onChange={(e) =>
+              actualizar("ficha", e.target.value)
+            }
+            required
           />
+
         </div>
 
+
         <div className="grupo">
+
           <label>Jornada</label>
 
           <select
-            value={jornada}
-            onChange={(e) => setJornada(e.target.value)}
+            value={datos.jornada || "Mañana"}
+            onChange={(e) =>
+              actualizar("jornada", e.target.value)
+            }
           >
+
             <option>Mañana</option>
             <option>Tarde</option>
             <option>Noche</option>
             <option>Mixta</option>
+
           </select>
+
         </div>
+
 
         <button type="submit">
           Continuar registro
@@ -121,6 +175,7 @@ function FormularioDatos({ siguiente }) {
       </form>
 
     </div>
+
   );
 }
 
