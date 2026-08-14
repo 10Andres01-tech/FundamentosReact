@@ -1,6 +1,6 @@
 function FormularioDatos({ datos, setDatos, siguiente }) {
 
-  // Actualiza cualquier dato del formulario
+  // Actualizar datos
   const actualizar = (campo, valor) => {
 
     setDatos((anterior) => ({
@@ -9,6 +9,7 @@ function FormularioDatos({ datos, setDatos, siguiente }) {
     }));
 
   };
+
 
   // Función del botón Continuar
   const continuar = (e) => {
@@ -19,8 +20,8 @@ function FormularioDatos({ datos, setDatos, siguiente }) {
 
   };
 
-  return (
 
+  return (
     <div className="formulario">
 
       <h2>Registro de Aprendices</h2>
@@ -175,7 +176,6 @@ function FormularioDatos({ datos, setDatos, siguiente }) {
       </form>
 
     </div>
-
   );
 }
 

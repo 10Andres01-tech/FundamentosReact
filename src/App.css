@@ -1,3 +1,7 @@
+/* ============================= */
+/* CONFIGURACIÓN GENERAL */
+/* ============================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +10,14 @@
 }
 
 
-/* ============================= */
-/* FONDO GENERAL */
-/* ============================= */
-
 body {
     min-height: 100vh;
+
     background: linear-gradient(
         135deg,
         #751f8f 0%,
         #a057aa 45%,
-        #d6a2ee 100%
+        #d6a2ee6b 100%
     );
 }
 
@@ -44,8 +45,13 @@ body {
 
 
 /* ============================= */
-/* TITULO PRINCIPAL */
+/* HEADER */
 /* ============================= */
+
+header {
+    margin-bottom: 20px;
+}
+
 
 h1 {
     text-align: center;
@@ -61,17 +67,18 @@ h1 {
 
 
 /* ============================= */
-/* FORMULARIOS */
+/* FORMULARIO */
 /* ============================= */
 
 .formulario {
-    background: #ffffff;
+    background: #fff;
 
     border-radius: 12px;
 
     padding: 28px 34px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -87,7 +94,7 @@ h1 {
 
 
 /* ============================= */
-/* GRID DE FORMULARIOS */
+/* FORM GRID */
 /* ============================= */
 
 form {
@@ -118,7 +125,7 @@ form {
 
 
 /* ============================= */
-/* INPUTS Y SELECT */
+/* INPUTS */
 /* ============================= */
 
 .grupo input,
@@ -150,7 +157,8 @@ form {
 .grupo select:focus {
     border: 1px solid #5949df;
 
-    box-shadow: 0 0 5px rgba(89, 73, 223, 0.2);
+    box-shadow:
+        0 0 5px rgba(89, 73, 223, 0.2);
 }
 
 
@@ -172,17 +180,14 @@ form {
     font-size: 14px;
 
     outline: none;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    transition: 0.2s;
 }
 
 
 .grupo textarea:focus {
     border: 1px solid #5949df;
 
-    box-shadow: 0 0 5px rgba(89, 73, 223, 0.2);
+    box-shadow:
+        0 0 5px rgba(89, 73, 223, 0.2);
 }
 
 
@@ -215,8 +220,6 @@ button {
 
 button:hover {
     background: #4331cf;
-
-    transform: translateY(-1px);
 }
 
 
@@ -235,132 +238,301 @@ footer {
 }
 
 
-/* ================================================= */
-/*                VISTA PREVIA                       */
-/* ================================================= */
+/* ============================= */
+/* CURSOS DINÁMICOS */
+/* ============================= */
 
-.vista-previa {
-    padding: 32px 38px;
-
-    background: #ffffff;
-
-    border-radius: 14px;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+.cursos-grupo {
+    grid-column: 1 / 3;
 }
 
 
-/* Título de la vista previa */
+.curso-agregar {
+    display: flex;
 
-.vista-previa h2 {
-    font-size: 25px;
+    gap: 10px;
+}
 
-    color: #4c35b8;
 
-    margin-bottom: 28px;
+.curso-agregar input {
+    flex: 1;
+}
 
-    padding-bottom: 15px;
 
-    border-bottom: 2px solid #eee;
+.curso-agregar .btn-agregar {
+    width: auto;
 
+    padding: 0 18px;
+
+    margin: 0;
+
+    grid-column: auto;
+}
+
+
+.lista-cursos {
+    margin-top: 12px;
+}
+
+
+.curso-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 12px;
+
+    margin-bottom: 8px;
+
+    background: #f5f3ff;
+
+    border: 1px solid #ddd8ff;
+
+    border-radius: 7px;
+}
+
+
+.curso-item span {
+    color: #333;
+
+    font-size: 14px;
+}
+
+
+.btn-eliminar {
+    width: auto;
+
+    height: 32px;
+
+    margin: 0;
+
+    padding: 0 12px;
+
+    background: #dc3545;
+
+    font-size: 12px;
+
+    grid-column: auto;
+}
+
+
+.btn-eliminar:hover {
+    background: #b52a37;
+}
+
+
+.sin-cursos,
+.sin-experiencias {
     text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    padding: 12px;
 }
 
 
 /* ============================= */
-/* SECCIONES */
+/* EXPERIENCIAS DINÁMICAS */
 /* ============================= */
 
-.preview-seccion {
-    margin-bottom: 24px;
+.btn-agregar-experiencia {
+    grid-column: 1 / 3;
 
-    padding: 20px;
+    background: #5342dd;
+}
+
+
+.lista-experiencias {
+    grid-column: 1 / 3;
+
+    margin-top: 5px;
+}
+
+
+.experiencia-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
 
     background: #f8f8fc;
 
-    border: 1px solid #e7e5f2;
+    border: 1px solid #e3e0f0;
+
+    border-radius: 9px;
+}
+
+
+.experiencia-item h3 {
+    color: #5342dd;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+
+.experiencia-item p {
+    margin-bottom: 5px;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+
+.experiencia-item .btn-eliminar {
+    flex-shrink: 0;
+}
+
+
+/* ============================= */
+/* VISTA PREVIA */
+/* ============================= */
+
+.vista-previa {
+    background: #ffffff;
+
+    padding: 32px;
+}
+
+
+.vista-previa h2 {
+    color: #563dc8;
+
+    font-size: 24px;
+
+    margin-bottom: 25px;
+}
+
+
+.preview-seccion {
+    margin-bottom: 22px;
+
+    padding: 20px;
+
+    background: #fafafa;
+
+    border: 1px solid #e5e5e5;
 
     border-radius: 10px;
 }
 
-
-/* Títulos de cada sección */
 
 .preview-seccion h3 {
     color: #5342dd;
 
     font-size: 17px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 
-    padding-bottom: 9px;
+    padding-bottom: 8px;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #eee;
 }
 
 
-/* ============================= */
-/* INFORMACIÓN */
-/* ============================= */
-
 .preview-seccion p {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 8px;
-
-    padding: 8px 0;
-
     font-size: 14px;
 
     color: #444;
 
-    border-bottom: 1px solid #eeeeee;
+    padding: 7px 0;
 
-    line-height: 1.5;
+    border-bottom: 1px solid #eeeeee;
 }
 
-
-/* Quitar línea al último dato */
 
 .preview-seccion p:last-child {
     border-bottom: none;
 }
 
 
-/* Etiquetas */
-
-.preview-seccion p strong {
-    min-width: 160px;
-
-    color: #292929;
-
-    font-size: 14px;
+.preview-seccion strong {
+    color: #222;
 }
 
 
 /* ============================= */
-/* BOTÓN DE VISTA PREVIA */
+/* CURSOS EN VISTA PREVIA */
 /* ============================= */
 
-.vista-previa button {
-    width: 100%;
+.preview-cursos {
+    padding-left: 20px;
 
     margin-top: 5px;
-
-    background: #5342dd;
 }
 
 
-.vista-previa button:hover {
-    background: #4331cf;
+.preview-cursos li {
+    padding: 9px 10px;
+
+    margin-bottom: 7px;
+
+    color: #444;
+
+    background: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 5px;
 }
 
 
-/* ================================================= */
+/* ============================= */
+/* EXPERIENCIAS EN VISTA PREVIA */
+/* ============================= */
+
+.preview-experiencia {
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 8px;
+}
+
+
+.preview-experiencia:last-child {
+    margin-bottom: 0;
+}
+
+
+.preview-experiencia h4 {
+    color: #5342dd;
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+}
+
+
+.preview-experiencia p {
+    display: flex;
+
+    flex-direction: row;
+
+    border-bottom: 1px solid #eeeeee;
+
+    padding: 7px 0;
+}
+
+
+/* ============================= */
 /* RESPONSIVE */
-/* ================================================= */
+/* ============================= */
 
 @media (max-width: 768px) {
 
@@ -384,30 +556,45 @@ footer {
     }
 
 
-    .vista-previa {
-        padding: 22px 18px;
+    .cursos-grupo {
+        grid-column: 1;
     }
 
 
-    .vista-previa h2 {
-        font-size: 21px;
+    .curso-agregar {
+        flex-direction: column;
     }
 
 
-    .preview-seccion {
-        padding: 15px;
+    .curso-agregar .btn-agregar {
+        width: 100%;
     }
 
 
-    .preview-seccion p {
+    .btn-agregar-experiencia {
+        grid-column: 1;
+    }
+
+
+    .lista-experiencias {
+        grid-column: 1;
+    }
+
+
+    .experiencia-item {
+        flex-direction: column;
+    }
+
+
+    .experiencia-item .btn-eliminar {
+        width: 100%;
+    }
+
+
+    .preview-experiencia p {
         flex-direction: column;
 
         gap: 3px;
-    }
-
-
-    .preview-seccion p strong {
-        min-width: auto;
     }
 
 }

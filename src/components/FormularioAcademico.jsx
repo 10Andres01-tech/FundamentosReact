@@ -1,6 +1,17 @@
-function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
+import { useState } from "react";
 
-  // Actualiza cualquier dato académico
+function FormularioAcademico({
+  datos,
+  setDatos,
+  siguiente,
+  anterior
+}) {
+
+  // Estado temporal para escribir un nuevo curso
+  const [nuevoCurso, setNuevoCurso] = useState("");
+
+
+  // Actualizar datos
   const actualizar = (campo, valor) => {
 
     setDatos((anterior) => ({
@@ -10,6 +21,44 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
 
   };
 
+
+  // Agregar curso
+  const agregarCurso = () => {
+
+    if (nuevoCurso.trim() === "") {
+      return;
+    }
+
+    setDatos((anterior) => ({
+      ...anterior,
+      cursos: [
+        ...anterior.cursos,
+        nuevoCurso.trim()
+      ]
+    }));
+
+    setNuevoCurso("");
+
+  };
+
+
+  // Eliminar curso
+  const eliminarCurso = (indice) => {
+
+    setDatos((anterior) => ({
+
+      ...anterior,
+
+      cursos: anterior.cursos.filter(
+        (_, i) => i !== indice
+      )
+
+    }));
+
+  };
+
+
+  // Continuar
   const continuar = (e) => {
 
     e.preventDefault();
@@ -18,8 +67,8 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
 
   };
 
-  return (
 
+  return (
     <div className="formulario">
 
       <h2>Información Académica</h2>
@@ -69,10 +118,10 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
 
           <input
             type="text"
-            placeholder="Ingrese los cursos"
-            value={datos.cursos || ""}
+            placeholder="Ingrese el curso"
+            value={nuevoCurso}
             onChange={(e) =>
-              actualizar("cursos", e.target.value)
+              setNuevoCurso(e.target.value)
             }
           />
 
@@ -103,12 +152,51 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
           <input
             type="number"
             placeholder="Ejemplo: 2026"
-            value={datos.graduacion || ""}
+            value={datos.anio || ""}
             onChange={(e) =>
-              actualizar("graduacion", e.target.value)
+              actualizar("anio", e.target.value)
             }
             required
           />
+
+        </div>
+
+
+        {/* Botón para agregar curso */}
+
+        <button
+          type="button"
+          onClick={agregarCurso}
+        >
+          + Agregar curso
+        </button>
+
+
+        {/* Mostrar los cursos */}
+
+        <div className="lista-cursos">
+
+          {datos.cursos.map((curso, indice) => (
+
+            <div
+              className="curso-item"
+              key={indice}
+            >
+
+              <span>{curso}</span>
+
+              <button
+                type="button"
+                onClick={() =>
+                  eliminarCurso(indice)
+                }
+              >
+                Eliminar
+              </button>
+
+            </div>
+
+          ))}
 
         </div>
 
@@ -128,7 +216,6 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
       </form>
 
     </div>
-
   );
 }
 

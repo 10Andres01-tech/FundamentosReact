@@ -1,9 +1,13 @@
 function Header() {
+
   return (
-    <>
-      <h1>Sistema de Registro Hojas de Vida</h1>
-    </>
+    <header>
+
+      <h1>Sistema de Registro de Hojas de Vida</h1>
+
+    </header>
   );
+
 }
 
 export default Header;
