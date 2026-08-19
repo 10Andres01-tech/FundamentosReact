@@ -14,42 +14,43 @@ function App() {
   // Controla el formulario que se muestra
   const [paso, setPaso] = useState(1);
 
-  // Estado compartido de toda la información del aprendiz
+  // Estado compartido
   const [aprendiz, setAprendiz] = useState({
 
     // Datos personales
-    foto: "",
+    foto: null,
     nombre: "",
     edad: "",
     ciudad: "",
     correo: "",
     programa: "",
     ficha: "",
-    jornada: "Mañana",
+    jornada: "",
 
     // Información académica
-    nivel: "Técnico",
+    nivel: "",
     institucion: "",
     titulo: "",
-    graduacion: "",
-    cursos: "",
+    anio: "",
 
-    // Experiencia laboral
-    empresa: "",
-    cargo: "",
-    experiencia: "",
-    funciones: "",
-    habilidades: ""
+    // Cursos
+    cursos: [],
+
+    // Experiencia
+    experiencias: []
 
   });
 
-  return (
 
+  return (
     <div className="contenedor">
 
       <div className="contenido">
 
         <Header />
+
+
+        {/* PASO 1 */}
 
         {paso === 1 && (
           <FormularioDatos
@@ -58,6 +59,9 @@ function App() {
             siguiente={() => setPaso(2)}
           />
         )}
+
+
+        {/* PASO 2 */}
 
         {paso === 2 && (
           <FormularioAcademico
@@ -68,6 +72,9 @@ function App() {
           />
         )}
 
+
+        {/* PASO 3 */}
+
         {paso === 3 && (
           <FormularioExperiencia
             datos={aprendiz}
@@ -77,12 +84,16 @@ function App() {
           />
         )}
 
+
+        {/* PASO 4 */}
+
         {paso === 4 && (
           <VistaPrevia
             datos={aprendiz}
             anterior={() => setPaso(3)}
           />
         )}
+
 
         <Footer />
 

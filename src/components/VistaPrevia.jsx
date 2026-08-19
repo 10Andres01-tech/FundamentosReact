@@ -1,6 +1,5 @@
 function VistaPrevia({ datos, anterior }) {
 
-  // Función para mostrar cada campo
   const campo = (etiqueta, valor) => (
 
     <p>
@@ -10,18 +9,18 @@ function VistaPrevia({ datos, anterior }) {
 
   );
 
-  return (
 
+  return (
     <div className="formulario vista-previa">
 
       <h2>Vista Previa de la Hoja de Vida</h2>
 
 
-      {/* DATOS PERSONALES */}
+      {/* Datos personales */}
 
       <div className="preview-seccion">
 
-        <h3>Datos Personales</h3>
+        <h3>Datos personales</h3>
 
         {campo("Nombre", datos.nombre)}
 
@@ -37,45 +36,96 @@ function VistaPrevia({ datos, anterior }) {
 
         {campo("Jornada", datos.jornada)}
 
-        {campo("Fotografía", datos.foto)}
+      </div>
+
+
+      {/* Información académica */}
+
+      <div className="preview-seccion">
+
+        <h3>Información académica</h3>
+
+        {campo("Nivel", datos.nivel)}
+
+        {campo("Título", datos.titulo)}
+
+        {campo("Institución", datos.institucion)}
+
+        {campo("Año de graduación", datos.anio)}
 
       </div>
 
 
-      {/* INFORMACIÓN ACADÉMICA */}
+      {/* Cursos */}
 
       <div className="preview-seccion">
 
-        <h3>Información Académica</h3>
+        <h3>Cursos realizados</h3>
 
-        {campo("Nivel de formación", datos.nivel)}
+        <ul>
 
-        {campo("Título obtenido", datos.titulo)}
+          {datos.cursos.map(
+            (curso, indice) => (
 
-        {campo("Cursos realizados", datos.cursos)}
+              <li key={indice}>
+                {curso}
+              </li>
 
-        {campo("Institución educativa", datos.institucion)}
+            )
+          )}
 
-        {campo("Año de graduación", datos.graduacion)}
+        </ul>
 
       </div>
 
 
-      {/* EXPERIENCIA */}
+      {/* Experiencias */}
 
       <div className="preview-seccion">
 
-        <h3>Experiencia Laboral</h3>
+        <h3>Experiencia laboral</h3>
 
-        {campo("Empresa", datos.empresa)}
+        {datos.experiencias.map(
+          (experiencia, indice) => (
 
-        {campo("Cargo", datos.cargo)}
+            <div
+              className="preview-experiencia"
+              key={indice}
+            >
 
-        {campo("Tiempo de experiencia", datos.experiencia)}
+              <h4>
+                Experiencia {indice + 1}
+              </h4>
 
-        {campo("Funciones desempeñadas", datos.funciones)}
+              {campo(
+                "Empresa",
+                experiencia.empresa
+              )}
 
-        {campo("Habilidades técnicas", datos.habilidades)}
+              {campo(
+                "Cargo",
+                experiencia.cargo
+              )}
+
+              {campo(
+                "Tiempo",
+                experiencia.tiempo
+              )}
+
+              {campo(
+                "Funciones",
+                experiencia.funciones
+              )}
+
+              {campo(
+                "Habilidades",
+                experiencia.habilidades
+              )}
+
+            </div>
+
+          )
+        )}
 
       </div>
 
@@ -88,7 +138,6 @@ function VistaPrevia({ datos, anterior }) {
       </button>
 
     </div>
-
   );
 }
 
